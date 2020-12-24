@@ -84,6 +84,18 @@ func delete_slice(){
 	}
 }
 
+func sort_slice(){
+	var a = [...]int{55,33,11,88,554,66}
+	for i := 0; i < len(a); i++ {
+		for j := 1; i+j < len(a); j++ {
+			if a[i] < a[i+j] {
+				a[i+j], a[i] = a[i], a[i+j]
+			}
+		}
+	}
+	fmt.Printf("a=%v", a)
+}
+
 func main(){
 	//切片是一个引用类型，它的内部结构包含地址、长度和容量。
 	//切片一般用于快速地操作一块数据集合
@@ -113,5 +125,8 @@ func main(){
 
 	//删除
 	delete_slice()
+
+	// 排序
+	sort_slice()
 
 }
