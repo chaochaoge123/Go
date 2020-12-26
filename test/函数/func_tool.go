@@ -26,6 +26,14 @@ func test_two(x int,y int) (int,int) {  //接收两个参数，返回两个值
 	return cfy,vbo
 }
 
+// 定义一个函数，返回值也是函数
+func axf() func(){
+	name := "peter"
+	return func(){
+		fmt.Println("BBBBBBBBB",name)
+	}
+}
+
 func name_mony(x string)(int){
 	// 输入用户名返回应得的金币
 	name:=x
@@ -71,7 +79,10 @@ func main(){
 	}(10, 20)
 
 
-	// 闭包函数
+	// 闭包函数=函数+外层变量的引用
+	r:=axf()
+	r()  //执行a函数中的匿名函数
+
 	// 异常捕获
 
 
